@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
@@ -16,6 +17,7 @@ public class Base {
 	protected static WebDriver driver;
 	protected static WebDriverWait wait;
 	protected static JavascriptExecutor scripts;
+	protected static SoftAssert sAssert; 
 	
 	public Base() {
 		ChromeDriverManager.getInstance().setup();
@@ -24,6 +26,7 @@ public class Base {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		scripts = (JavascriptExecutor) driver;
+		sAssert = new SoftAssert();
 	}
 	
 	/**
