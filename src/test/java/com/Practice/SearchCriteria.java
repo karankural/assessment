@@ -22,10 +22,10 @@ public class SearchCriteria extends Base{
 		List<WebElement> price = driver.findElements(By.xpath("//div[@class=\"right-block\"]//span[@class=\"price product-price\"]"));	
 		List<String> newPrices = new ArrayList<String>();
 		for(WebElement e : price) {
-			System.out.println(e.getText());
+			System.out.println("get price -> "+e.getText());
 			newPrices.add(e.getText());
 		}
-		sorting(newPrices);			
+		System.out.println(sorting(newPrices));			
 	}
 	
 	public static boolean sorting(List<String> list) {
@@ -33,7 +33,7 @@ public class SearchCriteria extends Base{
 		List<String> sortedPrices = new ArrayList<String>(fetchedPrice);
 		Collections.sort(sortedPrices);
 		for(String price1 : sortedPrices) {
-			System.out.println(price1);
+			System.out.println("sorted price -> "+price1);
 		}
 		return sortedPrices.equals(fetchedPrice);
 	}
